@@ -9,7 +9,7 @@ function $(nev) {
 }
 
 function init() {
-    ID("kuld").addEventListener("click", validalas);
+    ID("kuld").addEventListener("click", validacio);
 
 }
 function torles() {
@@ -17,7 +17,7 @@ function torles() {
 }
 
 
-function validalas() {
+function validacio() {
     var hiba = "";
     var urlapAdatok = "";
     var nevInput = ID("nev").value;
@@ -35,9 +35,9 @@ function validalas() {
     }
     //email
     var emailInput = ID("e-mail").value;
-    var szuro1 = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+[.]+[a-zA-Z0-9]/;
+    var szuroEmail = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+[.]+[a-zA-Z0-9]/;
     console.log(emailInput);
-    if (!szuro1.test(emailInput)) {
+    if (!szuroEmail.test(emailInput)) {
         hiba += "Érvénytelen e-mail címet adott meg!<br>";
         ID("e-mail").style.border = "1px solid red";
     } else {
@@ -57,8 +57,8 @@ function validalas() {
 
     //telefonszam
     var telszamInput = ID("telszam").value;
-    var szuro2 = /[+]([0-9]{2})-([0-9]{2})-([0-9]{3})-([0-9]{4})/;
-    if (!szuro2.test(telszamInput)) {
+    var szuroTelszam = /[+]([0-9]{2})-([0-9]{2})-([0-9]{3})-([0-9]{4})/;
+    if (!szuroTelszam.test(telszamInput)) {
         hiba += "Hibás formátumú telefonszámot adott meg!" + "<br>";
         ID("telszam").style.border = "1px solid red";
     } else {
@@ -68,8 +68,8 @@ function validalas() {
     }
 
     var webInput = ID("web").value;
-    var szuro3 = /[http:]+[//]+[a-zA-Z]+[.]+[a-zA-Z]/;
-    if (!szuro3.test(webInput)) {
+    var szuroUrl = /[http:]+[//]+[a-zA-Z]+[.]+[a-zA-Z]/;
+    if (!szuroUrl.test(webInput)) {
         hiba += "Érvénytelen url címet adott meg!" + "<br>";
         ID("web").style.border = "1px solid red";
     } else {
